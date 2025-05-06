@@ -1,43 +1,52 @@
-<div class="mb-4 p-8 flex items-center justify-center">
+<div class="py-8 px-8 justify-center grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 sm:grid-cols-1 gap-2">
     <!-- First card -->
-    <p-card [style]="{ width: '25rem', overflow: 'hidden' }">
+    <p-card class="py-0 group relative w-full h-full overflow-hidden rounded-2xl ">
         <ng-template #header>
-            <img alt="Card" class="w-full" src="https://primefaces.org/cdn/primeng/images/card-ng.jpg" />
-        </ng-template>
-        <ng-template #title> Visits to space centers </ng-template>
-        <ng-template #subtitle> Card subtitle </ng-template>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae
-            numquam deserunt
-            quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
-            quas!
-        </p>
-        <ng-template #footer>
-            <div class="flex gap-4 mt-1">
-                <p-button label="Cancel" severity="secondary" class="w-full" [outlined]="true" styleClass="w-full" />
-                <p-button label="Save" class="w-full" styleClass="w-full" />
+            <div class="relative flex flex-col justify-around w-full h-full">
+                <!-- Imagen de fondo -->
+                <img src="assets/images/baikonour_boys1.jpg"
+                    class="card-img w-full h-full min-h-full object-cover brightness-70" alt="Card" />
+                <div class="absolute inset-0 flex flex-col text-white p-6">
+
+                    <h3 class="text-3xl font-bold mb-2">My visits to space centers</h3>
+                    <p class="text-md mb-4 italic">July 1992 - September 2017 </p>
+                </div>
+                <!-- Contenido sobre la imagen (oculto por defecto) -->
+                <div
+                    class="absolute inset-0 flex flex-col justify-end items-center text-white text-center
+                       opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300">
+                    <div>
+                        <p-button size="large" [raised]="true" severity="contrast">
+                            Go to Visits<i class="pi pi-arrow-up-right" style="font-size: 1rem"></i>
+                        </p-button>
+                    </div>
+                </div>
             </div>
         </ng-template>
     </p-card>
-
     <!-- Second card -->
-
-    <p-card [style]="{ width: '25rem', overflow: 'hidden' }">
+    <p-card class="py-0 group relative w-full h-full overflow-hidden rounded-2xl">
         <ng-template #header>
-            <img alt="Card" class="w-full" src="https://primefaces.org/cdn/primeng/images/card-ng.jpg" />
-        </ng-template>
-        <ng-template #title> SpaceCraft models </ng-template>
-        <ng-template #subtitle> Card subtitle </ng-template>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae
-            numquam deserunt
-            quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
-            quas!
-        </p>
-        <ng-template #footer>
-            <div class="flex gap-4 mt-1">
-                <p-button label="Cancel" severity="secondary" class="w-full" [outlined]="true" styleClass="w-full" />
-                <p-button label="Save" class="w-full" styleClass="w-full" />
+            <div class="relative w-full h-full">
+                <!-- Imagen de fondo -->
+                <img src="assets/images/vostok_model_1_sm.jpg"
+                    class="card-img w-full h-full min-h-full object-cover brightness-70 transition-transform"
+                    alt="Card" />
+                <div class="absolute inset-0 flex flex-col text-white p-6">
+
+                    <h3 class="text-3xl font-bold mb-2">My Models of Spacecraft</h3>
+                    <p class="text-md mb-4 italic">Space Models and Spaceflight History </p>
+                </div>
+                <!-- Contenido sobre la imagen (oculto por defecto) -->
+                <div
+                    class="absolute inset-0 flex flex-col justify-end items-center text-white text-center
+                               opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300">
+                    <div>
+                        <p-button size="large" [raised]="true" severity="contrast">
+                            Go to Models<i class="pi pi-arrow-up-right" style="font-size: 1rem"></i>
+                        </p-button>
+                    </div>
+                </div>
             </div>
         </ng-template>
     </p-card>

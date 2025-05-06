@@ -1,0 +1,9 @@
+.card-img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.group:hover .card-img {
+  filter: brightness(40%);
+  transform: scale(1.05);
+
+}
