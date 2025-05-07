@@ -1,10 +1,138 @@
-<div class="surface-section px-4 py-8 md:px-6 lg:px-8">
-    <div class="text-700 text-center">
-        <div class="text-900 font-bold text-5xl mb-3">Mis visitas a centros espaciales</div>
-        <div class="text-700 text-2xl mb-5">He tenido el privilegio de recorrer instalaciones de lanzamiento en cinco
-            continentes, experiencias que relato
-            detalladamente para transmitir la emoción de estar en lugares clave de la historia espacial.</div>
-        <button pButton pRipple label="Acerca de" icon="pi pi-external-link"
-            class="font-bold px-5 py-3 p-button-raised p-button-rounded white-space-nowrap"></button>
+<div class="px-8 py-8 grid grid-cols-1">
+    <div class="text-700">
+        <h1 class="text-900 font-bold text-4xl mb-3">My Visits to <span class="text-purple-500">Space Centres</span>
+        </h1>
+        <section class="text-700 text-xl mb-5">
+            Since the early 1990s I have been privileged to be able to visit launch centres on five (5) continents!
+            (I've only missed Africa & Antarctica) For someone with a life long interest in the subject like me,
+            this has been a thrill beyond words. My trips to the following space centres are briefly reviewed below:
+        </section>
+
+        <section class="surface-section py-8 text-start">
+            <div class="card w-full">
+                <p-timeline [value]="events" align="left">
+                    <ng-template #marker let-event>
+                        <span
+                            class="flex w-8 h-8 items-center justify-center text-white rounded-full z-10 shadow-sm bg-purple-700">
+                            <i [class]="event.icon"></i>
+                        </span>
+                    </ng-template>
+
+                    <ng-template #content let-event>
+                        <div class="flex flex-wrap h-full gap-4">
+                            <!-- Card izquierda con texto sobre imagen -->
+                            <p-card class="flex-1 min-w-[300px] my-2 group relative overflow-hidden rounded-xl">
+                                <ng-template pTemplate="header">
+                                    <div class="relative w-full h-full cursor-pointer"
+                                        (click)="showImageDialog(event.leftContent.fullSizeImageUrl || event.leftContent.imageUrl, event.leftContent.title)">
+                                        <!-- Imagen de fondo -->
+                                        <img [src]="event.leftContent.imageUrl" [alt]="event.leftContent.title"
+                                            class="w-full h-[250px] object-cover brightness-65 group-hover:brightness-40 transition-all duration-300" />
+                                        <!-- Texto sobre imagen -->
+                                        <div class="absolute inset-0 flex flex-col justify-start text-white p-6">
+                                            <h3 class="text-2xl font-bold mb-1">{{event.leftContent.title}}</h3>
+                                            <p class="text-sm italic">{{event.leftContent.subtitle}}</p>
+                                        </div>
+                                        <!-- Botón para maximizar -->
+                                        <div
+                                            class="absolute bottom-4 right-4 flex items-center justify-center w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full transition-all">
+                                            <i
+                                                class="pi pi-arrow-up-right-and-arrow-down-left-from-center text-white"></i>
+                                        </div>
+                                    </div>
+                                </ng-template>
+                                <!-- Contenido debajo de la imagen -->
+                                <div class="p-2">
+                                    <p>{{ event.leftContent.description }}</p>
+                                    @if (event.leftContent.buttonText) {
+                                    <p-button [label]="event.leftContent.buttonText" [text]="true" />
+                                    }
+                                </div>
+                            </p-card>
+
+                            <!-- Accordion derecho (sin cambios) -->
+                            <div class="card my-2 flex-1 min-w-[300px]" [class]="event.rightContent.accordionStyle">
+                                <p-accordion [multiple]="true" [activeIndex]="[0]">
+                                    @for (tab of event.rightContent.tabs; track tab.value) {
+                                    <p-accordion-tab>
+                                        <ng-template pTemplate="header">
+                                            <div class="flex items-center gap-2">
+                                                @if (tab.imageUrl) {
+                                                <img [src]="tab.imageUrl" class="w-6 h-6" />
+                                                }
+                                                <span
+                                                    class="text-purple-500 hover:text-purple-300 active:text-purple-300">{{
+                                                    tab.title
+                                                    }}</span>
+                                            </div>
+                                        </ng-template>
+                                        <p class="m-0 whitespace-pre-line">{{ tab.content }}</p>
+                                    </p-accordion-tab>
+                                    }
+                                </p-accordion>
+                            </div>
+                        </div>
+                    </ng-template>
+                </p-timeline>
+            </div>
+        </section>
     </div>
+
+    <!-- Modal para galería de imágenes -->
+    <p-dialog header="{{currentImage.alt}} Gallery" [(visible)]="displayModal" [modal]="true"
+        [style]="{ width: '90vw', maxWidth: '1200px' }" [breakpoints]="{ '960px': '75vw', '640px': '90vw' }"
+        [draggable]="false" [resizable]="false"
+        [contentStyle]="{ 'padding': '0', 'position': 'relative', 'min-height': '60vh' }">
+
+        <div class="relative w-full h-full flex justify-center items-center" style="min-height: 60vh;">
+            <!-- Botón anterior -->
+            @if (currentImage.urls.length > 1) {
+            <button
+                class="absolute left-4 z-50 p-3 bg-purple-700 hover:bg-purple-500 rounded-full shadow-md border border-gray-200"
+                (click)="prevImage(); $event.stopPropagation()">
+                <i class="pi pi-chevron-left text-white"></i>
+            </button>
+            }
+
+            <!-- Imagen actual -->
+            <div class="w-full h-full flex justify-center items-center">
+                <img [src]="currentImage.urls[currentImage.currentIndex]" [alt]="currentImage.alt"
+                    class="max-h-[70vh] max-w-[90%] object-contain" />
+            </div>
+
+            <!-- Botón siguiente -->
+            @if (currentImage.urls.length > 1) {
+            <button
+                class="absolute right-4 z-50 p-3 bg-purple-700 hover:bg-purple-500 rounded-full shadow-md border border-gray-200"
+                (click)="nextImage(); $event.stopPropagation()">
+                <i class="pi pi-chevron-right text-white"></i>
+            </button>
+            }
+
+            <!-- Indicador de posición -->
+            @if (currentImage.urls.length > 1) {
+            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-50">
+                @for (url of currentImage.urls; track url; let i = $index) {
+                <span class="w-3 h-3 rounded-full cursor-pointer transition-colors border border-gray-300"
+                    [class.bg-purple-500]="i === currentImage.currentIndex"
+                    [class.bg-gray-200]="i !== currentImage.currentIndex"
+                    (click)="currentImage.currentIndex = i; $event.stopPropagation()">
+                </span>
+                }
+            </div>
+            }
+        </div>
+
+        <ng-template pTemplate="footer">
+            <div class="flex justify-between items-center w-full px-4 py-2">
+                @if (currentImage.urls.length > 1) {
+                <span class="text-sm text-gray-600">
+                    Imagen {{currentImage.currentIndex + 1}} de {{currentImage.urls.length}}
+                </span>
+                }
+                <button pButton label="Close" icon="pi pi-times" (click)="displayModal = false"
+                    class="p-button-text"></button>
+            </div>
+        </ng-template>
+    </p-dialog>
 </div>
