@@ -1,0 +1,28 @@
+
+
+::ng-deep .p-timeline-event-opposite {
+    flex: 0 !important;
+    padding: 0 !important;
+}
+
+
+:host ::ng-deep .p-dialog .p-dialog-content {
+    padding: 0 !important;
+    overflow: visible !important;
+}
+
+:host ::ng-deep .p-dialog {
+    overflow: visible !important;
+}
+
+.gallery-control {
+    transition: all 0.2s ease;
+    opacity: 0.9;
+}
+
+.gallery-control:hover {
+    opacity: 1;
+    transform: scale(1.5);
+}
+
+
