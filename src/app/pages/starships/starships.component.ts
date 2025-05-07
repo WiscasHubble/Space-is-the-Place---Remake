@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+﻿import { Component} from '@angular/core';
 import { INFORMACION_PAGINA_01, Slide } from '../../data/slides';  // <—Aquí
 import { GalleriaModule } from 'primeng/galleria'; //galeria
 import { CommonModule } from '@angular/common';
@@ -11,7 +11,6 @@ import { TabViewModule } from 'primeng/tabview'; // Cambia TabsModule por TabVie
   templateUrl: './starships.component.html',
   styleUrls: ['./starships.component.css']
 })
-
 export class StarshipsComponentPage {
   /****************** TabsModule *****************/
 

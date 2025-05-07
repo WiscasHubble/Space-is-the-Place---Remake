@@ -1,46 +1,318 @@
 export interface Slide {
-    img: string | string[] ;
+    img: string | string[];
     title: string;
-    caption: string;
     info?: string;
   }
 
-  export const INFORMACION_PAGINA_01: Slide[] = [
+  export var INFORMACION_PAGINA_01: Slide[] = [
     {
-      img: 
-      [
-        'Img/V-2/V-2.jpg',
-        'Img/V-2/V-2.jpg',
-        'Img/V-2/V-2.jpg',
-        'Img/V-2/V-2.jpg',
-        'Img/V-2/V-2.jpg',
+      title: 'V-2 (A-4) (1/69)',
+      info: 'The V-2, originally called the A-4, was a key development in rocketry, marking the shift from small experimental devices to large weapons systems and paving the way for spaceflight. Developed in Germany during WWII by Dr. Wernher von Braun’s team, it featured innovative cooling methods for its engine. Entered late in the war, it was used against London and Belgium but was more a tool of terror than a war changer. After the war, the U. S. and Soviets captured and learned from V-2s, leading to the creation of their rocket programs. The V-2 also helped launch early space probes. A model of the V-2 from a Revell kit is showcased in a diorama, with components displayed for better visibility.',
+      img: [
+        '../assets/images/V-2/V-2.jpg',
+        '../assets/images/V-2/v2real.jpg',
+        '../assets/images/V-2/Motor2.jpg',
+        '../assets/images/V-2/Motor.jpg',
       ],
-      title: 'V 2',
-      caption: `Nota: El nombre de este sitio rinde homenaje a Saturno, Sun Ra…`,
-      info: 'El V-2, llamado A-4 por sus diseñadores, es un avance clave en la cohetería. Representó el paso de cohetes pequeños a sistemas de armas grandes, permitiendo el vuelo espacial. Desarrollado en Alemania durante la Segunda Guerra Mundial por el Dr. Wernher von Braun, el V-2 integró innovaciones técnicas, como el uso de oxígeno líquido para enfriar el motor. Aunque llegó tarde a la guerra, fue capturado y estudiado por Estados Unidos y la Unión Soviética, lo que llevó al desarrollo de cohetes como el Saturno V. Un modelo en escala 1/69 del V-2 se exhibe en un diorama de guerra.'
     },
     {
-      img: 'Img/Sputnik2/spu2.jpg',
       title: 'Sputnik 2 (1/30)',
-      caption: `El 4 de octubre de 1957, la Unión Soviética lanzó el Sputni…`,
-      info: "El 4 de octubre de 1957, la Unión Soviética lanzó el Sputnik, el primer satélite artificial de la Tierra. Esto sorprendió al mundo, especialmente a Estados Unidos, que consideraba a la URSS una nación atrasada. Menos de un mes después, el 3 de noviembre, lanzaron el Sputnik 2, que transportaba a Laika, la primera criatura viviente en órbita. Laika murió días después. Eisenhower, presidente de EE. UU. , permitió que la URSS lanzara un satélite primero, a pesar de que EE. UU. podía haberlo hecho. Esto fue parte de una estrategia para abordar la presión del Congreso sobre el gasto militar. Finalmente, EE. UU. descubrió que tenía ventaja en misiles nucleares estratégicos sobre la URSS. Se menciona un modelo del Sputnik 2 en homenaje a Laika."
+      info: 'On October 4, 1957, the Soviet Union launched (Sputnik), the worlds first artificial Earth satellite, surprising many, especially in the United States. A month later, on November 3, 1957, they launched Sputnik 2, which carried the dog Laika into orbit, showing that the USSR aimed to send humans into space. At this time, the US could have launched a satellite first, but President Eisenhower intentionally let the USSR take the lead to highlight the difference between space and air overflight. Later, US spy programs revealed that the US actually had a substantial lead in nuclear missiles, contrary to the impression given by early Soviet space successes',
+      img: [
+        '../assets/images/Sputnik2/spu2_1.jpg',
+        '../assets/images/Sputnik2/spu2_2.jpg',
+        '../assets/images/Sputnik2/spu2.jpg',
+      ],
     },
     {
-      img: 'Img/Soyuz/soyuz.jpg',
-      title: 'Cohetes Soyuz T (1/100) y Soyuz TM-15 (1/72)',
-      caption: `El cohete Soyuz es el más utilizado en vuelos espaciales tripulados…`,
-      info: 'El cohete Soyuz es el más utilizado en vuelos espaciales tripulados, con orígenes en la década de 1950. Deriva del R-7, el primer misil balístico intercontinental, que realizó su primer vuelo exitoso en 1957 y lanzó el primer satélite, Sputnik, ese mismo año. El R-7 tenía una etapa central con motor de cuatro cámaras y cuatro propulsores acoplables. Se han añadido etapas superiores con el tiempo, como la que impulsó a Luna 1 en 1959 y las que llevaron a los primeros hombres al espacio. Hoy, el Soyuz se usa para llevar tripulaciones a la Estación Espacial Internacional y lanzar satélites. Su diseño sigue siendo sencillo y robusto, reflejando la ingeniería rusa. El modelo Soyuz T se basa en kits de lanzamiento y se ha utilizado en varios lanzamientos desde entonces.'
+      title: 'Soyuz T (1/100)',
+      info: 'The Soyuz rocket has been the most widely used booster for manned space flight in history, originating from the Soviet Unions R-7 ICBM developed in the early 1950s. The first test flight occurred in 1957, and the same rocket launched Sputnik, the first artificial Earth satellite, that October. The R-7 features a central core stage with four strap-on boosters, all utilizing kerosene and liquid oxygen fuel. Over the years, upper stages have been added to increase lift capacity, enabling missions like Luna 1 and the Vostok launcher, which put the first men in orbit in 1961. Since 1967, variations have been used to launch Soyuz manned spacecraft. The Soyuz booster is still active today, regularly launching crews to the ISS and other satellites. Russian engineering emphasizes simplicity and reliability, which is evident in the long history of the Soyuz booster. The Soyuz T model is based on specific kits, with personal details about a launch experience in 1992 available.',
+      img: [
+        '../assets/images/Soyuz/soyuz.jpg',
+        '../assets/images/Soyuz/soyuz_2.jpg',
+        '../assets/images/Soyuz/soyuz_3.jpg',
+        '../assets/images/Soyuz/soyuz_4.jpg',
+      ],
     },
     {
-        img: 'Img/Mercury/mer_01.jpg',
-        title: 'Mercury-Atlas (1/48)',
-        caption: `Más detalles sobre este modelo…`,
-        info: 'El Atlas fue el primer misil balístico intercontinental de Estados Unidos, desarrollado en los años 50 tras el cohete soviético R-7. Ambos compartían características similares y funcionaban con queroseno y oxígeno líquido. El Atlas era más pequeño que el R-7, lo que se debía a la tecnología más avanzada de armas nucleares de EE. UU. Variaciones de ambos cohetes aún se utilizan. '
+      title: 'Mercury-Atlas (1/48)',
+      info: 'The Atlas was Americas first intercontinental ballistic missile (ICBM), developed in the 1950s, shortly after the Soviet R-7 rocket. Both missiles were their nations first ICBMs and had similarities, such as being fueled by kerosene and liquid oxygen, and having a 1 1/2 stage design. The core stage and the booster engines fired on the ground, with the boosters dropping off after a few minutes. Both the Atlas and the R-7 were later modified to launch the first men into orbit, though the first two Americans in space used the smaller Mercury-Redstone. The Atlas was smaller and had less lift capacity than the R-7 due to advanced American thermonuclear weapon technology. Variants of both rockets are still in use today. The text also mentions a model of the last Mercury-Atlas launch vehicle, MA-9 or Faith 7, featuring Gordon Coopers 22 orbits in May 1963. The model is based on the Eagles Talon kit and Revells Mercury-Gemini kit.',
+      img: [
+        '../assets/images/Mercury/mer_01.jpg',
+        '../assets/images/Mercury/mer_02.jpg',
+        '../assets/images/Mercury/mer_03.jpg',
+        '../assets/images/Mercury/mer_04.jpg',
+      ],
     },
     {
-        img: 'Img/Vostok/vostok1.jpg',
-        title: 'Vostok (1/30)',
-        caption: `Más detalles sobre este modelo…`,
-        info: 'Este modelo representa la nave espacial soviética Vostok, volada por Yuri Gagarin el 12 de abril de 1961. Realizó seis vuelos entre 1961 y 1963, llevando a Valentina Tereshkova, la primera mujer en el espacio. La Vostok era más sencilla que la Mercury. Este modelo se basa en un kit de Ogonjek de la Unión Soviética.'
+      title: 'Vostok (1/30)',
+      info: 'This model represents the Soviet Vostok, the first manned spacecraft. Yuri Gagarin flew it on April 12, 1961, completing one orbit. The Vostok made six flights, including one with Valentina Tereshkova, the first woman in space. It was less complex than the American Mercury, with most functions pre-programmed. This model is detailed and based on the Ogonjek kit from the Soviet Union available in the West in the 1980s.',
+      img: [
+        '../assets/images/Vostok/vostok1.jpg',
+        '../assets/images/Vostok/vostok2.jpg',
+        '../assets/images/Vostok/vostok3.jpg',
+        '../assets/images/Vostok/vostok4.jpg',
+      ],
     },
+    {
+      title: 'Freedom 7 II (1/32)',
+      info: 'This is a model of a Mercury spacecraft that was never flown. After Gordon Coopers mission in Faith 7, NASA considered a three-day mission but decided against it, closing the Mercury Program to focus on Gemini. The spacecraft was named "Freedom 7 II" for pilot Alan Shepard. The author saw this spacecraft in 1996, inspiring the model.',
+      img: [
+        '../assets/images/Freedom/Free.jpg',
+        '../assets/images/Freedom/free01.jpg',
+        '../assets/images/Freedom/free02.jpg',
+        '../assets/images/Freedom/free03.jpg',
+      ],
+    },
+    {
+      title: 'Voskhod 2 (1/25)',
+      info: 'The first spacewalk happened on March 18, 1965, during the Voskhod 2 mission. Cosmonaut Alexei Leonov exited the spacecraft through an inflatable airlock. The Voskhod was a modified Vostok, allowing multiple crew members. This mission marked the end of major Soviet space achievements before the US Gemini program surpassed many records. After Leonov’s walk, the US quickly planned its own spacewalks. This model is based on the East German Plasticart 1/25 Vostok kit, and the Leonov figure is modified from a figure of General George Patton.',
+      img: [
+        '../assets/images/voskod2/voskod.jpg',
+        '../assets/images/voskod2/voskod02.jpg',
+        '../assets/images/voskod2/voskod03.jpg',
+      ],
+    },
+    {
+      title: 'Gemini-Titan II (1/100 and 1/48)',
+      info: 'The Titan II was a second-generation American intercontinental ballistic missile (ICBM), developed after the Atlas ICBM. The Atlas required hours to prepare for launch due to challenges with loading super cold liquid oxygen. In contrast, the Titan II used propellants that could be stored at room temperature and burned on contact, making it easier to launch. It was more effective than the Atlas and was stored in nuclear-hardened silos across the US. The Titan II also served as a booster for the Gemini spacecraft, which completed ten missions in 1965 and 1966. Eventually, Titan IIs were replaced by faster launching missiles like the Minuteman. There are two models of the Gemini-Titan II in the Shrine, showcasing detailing work and special features to simulate smoke and flame.',
+      img: [
+        '../assets/images/gemini/gemini.jpg',
+        '../assets/images/gemini/gemini01.jpg',
+        '../assets/images/gemini/gemini02.jpg',
+        '../assets/images/gemini/gemini03.jpg',
+        '../assets/images/gemini/gemini04.jpg',
+      ],
+    },
+    {
+      title: 'Gemini-Agena 11 (1/48)',
+      info: 'The Gemini Program was created to connect early Mercury missions with future Apollo missions, focusing on skills needed for moon flights, like spacecraft docking, spacewalking, and long missions. The Gemini 11 model shows the spacecraft docked with an Agena, achieving a record height of 850 miles during its mission. The model is built from a Revell kit with added details, and the Agena target is entirely scratchbuilt.',
+      img: [
+        '../assets/images/gemini11/gemini11.jpg',
+        '../assets/images/gemini11/gemini112.jpg',
+        '../assets/images/gemini11/gemini113.jpg',
+        '../assets/images/gemini11/gemini114.jpg',
+      ],
+    },
+    {
+      title: 'Saturn I, Block 2 (1/144)',
+      info: 'The Saturn family of boosters was developed by Wernher von Brauns group at the Marshall Spaceflight Center in the late 1950s and 1960s. The Saturn concept involved combining tanks and engines from smaller rockets for heavy lifting. The Saturn I was the first, using hydrogen/oxygen fuels in its second stage. All Saturn Is were launched unmanned. This model is based on the Airfix Saturn IB kit, modified to show the upper stage and boilerplate Apollo spacecraft.',
+      img: [
+        '../assets/images/saturn/saturn.jpg',
+        '../assets/images/saturn/saturn1.jpg',
+        '../assets/images/saturn/saturn2.jpg',
+      ],
+    },
+    {
+      title: 'Saturn C-8 "NOVA" (1/144)',
+      info: 'The Saturn C-8 booster was a design concept from 1961-62 that was never constructed. It was proposed during the planning to achieve President John F. Kennedys goal of landing a man on the Moon by the end of the decade. Three methods for the mission were considered: Direct Ascent, Earth Orbit Rendezvous, and Lunar Orbit Rendezvous. Direct Ascent was initially favored, but it posed challenges such as needing a large spacecraft to land on and take off from the Moons surface. The Saturn C-8 included four stages with powerful engines, but due to height restrictions of the Vehicle Assembly Building, its design was limited. Ultimately, Lunar Orbit Rendezvous was chosen to simplify the mission, leading to developments in the Gemini program. This model was made using a resin kit from Martins Models in the UK.',
+      img: [
+        '../assets/images/nova/nova.jpg',
+        '../assets/images/nova/nova1.jpg',
+        '../assets/images/nova/nova2.jpg',
+      ],
+    },
+    {
+      title: 'Skylab (1/96)',
+      info: 'Skylab was Americas first manned space station, launched on May 14, 1973. It used Apollo program hardware. Three teams of three astronauts lived aboard Skylab for up to 81 days, using modified rockets for the missions.',
+      img: [
+        '../assets/images/sky/sky.jpg',
+        '../assets/images/sky/sky1.jpg',
+        '../assets/images/sky/sky2.jpg',
+        '../assets/images/sky/sky3.jpg',
+      ],
+    },
+    {
+      title: 'Australias First Satellites (1/48)',
+      info: 'I was inspired to build models of the launch vehicles for Australia’s first two satellites after attending the International Astronautical Congress in Adelaide, Australia, and visiting the Woomera Test Range in September 2017. I learned about my friend Richard Tonkin’s key role in Australia’s spaceflight history.', 
+      img: [
+        '../assets/images/austra/austra.jpg',
+        '../assets/images/austra/austra1.jpg',
+        '../assets/images/austra/austra2.jpg',
+      ],
+    },
+    {
+      title: 'L-1 (Zond) / BlockD (1/30)',
+      info: 'This text discusses a Soviet spacecraft model that was designed for circumlunar missions in the late 1960s but never carried a person to the Moon. Unlike the American Apollo program, which used one spacecraft for different types of missions, the Soviets had separate spacecraft and boosters for these missions. Historians believe this redundancy contributed to the Soviet Union falling behind the U. S. in lunar exploration. After several unmanned missions, the Soviets lost interest in manned lunar flybys following the success of Apollo 8. The model represents the L-1 spacecraft attached to the Proton rocket.',
+      img: [
+        '../assets/images/L1/l1.jpg',
+        '../assets/images/L1/L12.jpg',
+        '../assets/images/L1/L13.jpg',
+        '../assets/images/L1/L14.jpg',
+      ],
+    },
+    {
+      title: 'Proton-Mir (1/144)',
+      info: 'The Proton booster, known as the UR-500, was developed by the Soviet Union in the mid-1960s and has similar lifting power to the smaller American Saturn rockets. It is a heavy-lift launch vehicle still in use today, having launched modules for the Soviet and Russian space stations, as well as parts of the International Space Station. The Proton was planned to be the booster for a manned circumlunar mission, which never took place. Designed by Vladimir Chelomei’s OKB-52, the Proton used fuels that could be stored at room temperature, unlike other Soviet boosters designed by Sergei Korolev. ', img: [
+        '../assets/images/proton/proton1.jpg',
+        '../assets/images/proton/proton2.jpg',
+        '../assets/images/proton/proton3.jpg',
+        '../assets/images/proton/proton4.jpg',
+        '../assets/images/proton/proton5.jpg',
+      ],
+    },
+    {
+      title: 'N-1 (1/144)',
+      info: 'The N-1 rocket was the Soviet Unions answer to the American Saturn V, meant to support manned lunar landing missions in the late 1960s and early 1970s. It was kept secret for many years, with public photos only emerging in the late 1980s. The N-1 was large and, in some ways, exceeded the Saturn V, being designed for a lunar orbit rendezvous mission where one spacecraft orbited the Moon while another landed. The rocket had five stages and included a lunar landing module (LK) and a lunar orbiting command spacecraft (LOK).',
+      img: [
+        '../assets/images/N1/n1.jpg',
+        '../assets/images/N1/n12.jpg',
+        '../assets/images/N1/n13.jpg',
+        '../assets/images/N1/n14.jpg',
+        '../assets/images/N1/n15.jpg',
+      ],
+    },
+    {
+      title: 'Hubble Space Telescope (1/100)',
+      info: 'The Hubble Space Telescope (HST) was launched in April 1990 and has greatly expanded human knowledge. A model shows a service mission where an astronaut uses a Manned Maneuvering Unit (MMU) to position the HST for refurbishment.',
+      img: [
+        '../assets/images/hubble/hubble.jpg',
+        '../assets/images/hubble/hubble1.jpg',
+        '../assets/images/hubble/hubble2.jpg',
+        '../assets/images/hubble/hubble3.jpg',
+        '../assets/images/hubble/hubble4.jpg',
+        '../assets/images/hubble/hubble5.jpg',
+      ],
+    },
+    {
+      title: 'Salyut 7 (1/96)',
+      info: 'Salyut 7 was a Soviet manned space station from the "second generation. " It had two docking ports, allowing for supply ferries called "Progress" to bring supplies while a crew vehicle, the Soyuz, remained docked. This resupply method was new and allowed crews to stay in orbit longer. Launched in 1982, Salyut 7 was continually occupied by cosmonauts until 1986-7 when it was replaced by the Mir space station. A model shows Salyut 7 with an early setup, including a Soyuz-T spacecraft and a Progress supply ship, along with two cosmonauts on a spacewalk.',
+      img: [
+        '../assets/images/salyut/salyut.jpg',
+        '../assets/images/salyut/salyut1.jpg',
+        '../assets/images/salyut/salyut12.jpg',
+      ],
+    },
+    {
+      title: 'Energia-Buran (1/144 & 1/72)',
+      info: 'The Energia-Buran was a heavy-lift booster and space shuttle system created by the Soviet Union in the 1970s and 1980s after the N-1 lunar program was canceled. It only launched once in November 1988, and although it was designed for manned spaceflight, that launch was unmanned. Unlike the American Space Shuttle, the Energia could operate without its orbiter. The Energia was one of the most powerful rockets built, using liquid hydrogen and liquid oxygen, while its boosters burned kerosene and liquid oxygen.',
+      img: [
+        '../assets/images/energ/energ.jpg',
+        '../assets/images/energ/energ1.jpg',
+        '../assets/images/energ/energ2.jpg',
+        '../assets/images/energ/energ3.jpg',
+        '../assets/images/energ/energ4.jpg',
+        '../assets/images/energ/energ5.jpg',
+      ],
+    },
+    {
+      title: 'Apollo 15 Trans-Earth EVA (1/32)',
+      info: 'A model of this mission is based on a detailed 1/32 Apollo CSM kit. Six enhancement kits were used for the project, including exterior and interior detail sets and astronaut figures to recreate the scene. The thermal protection on the Command Module was made using Bare Metals chrome foil to match designs.',
+      img: [
+        '../assets/images/apollo/apollo.jpg',
+        '../assets/images/apollo/apollo1.jpg',
+        '../assets/images/apollo/apollo2.jpg',
+      ],
+    },
+    {
+      title: 'N-1 (1/144)',
+      info: 'The N-1 rocket was the Soviet Unions answer to the American Saturn V, meant to support manned lunar landing missions in the late 1960s and early 1970s. It was kept secret for many years, with public photos only emerging in the late 1980s. The N-1 was large and, in some ways, exceeded the Saturn V, being designed for a lunar orbit rendezvous mission where one spacecraft orbited the Moon while another landed. The rocket had five stages and included a lunar landing module (LK) and a lunar orbiting command spacecraft (LOK).',
+      img: [
+        '../assets/images/N1/n1.jpg',
+        '../assets/images/N1/n12.jpg',
+        '../assets/images/N1/n13.jpg',
+        '../assets/images/N1/n14.jpg',
+        '../assets/images/N1/n15.jpg',
+      ],
+    },
+    {
+      title: 'N-1 (1/144)',
+      info: 'The N-1 rocket was the Soviet Unions answer to the American Saturn V, meant to support manned lunar landing missions in the late 1960s and early 1970s. It was kept secret for many years, with public photos only emerging in the late 1980s. The N-1 was large and, in some ways, exceeded the Saturn V, being designed for a lunar orbit rendezvous mission where one spacecraft orbited the Moon while another landed. The rocket had five stages and included a lunar landing module (LK) and a lunar orbiting command spacecraft (LOK).',
+      img: [
+        '../assets/images/N1/n1.jpg',
+        '../assets/images/N1/n12.jpg',
+        '../assets/images/N1/n13.jpg',
+        '../assets/images/N1/n14.jpg',
+        '../assets/images/N1/n15.jpg',
+      ],
+    },
+    {
+      title: 'N-1 (1/144)',
+      info: 'The N-1 rocket was the Soviet Unions answer to the American Saturn V, meant to support manned lunar landing missions in the late 1960s and early 1970s. It was kept secret for many years, with public photos only emerging in the late 1980s. The N-1 was large and, in some ways, exceeded the Saturn V, being designed for a lunar orbit rendezvous mission where one spacecraft orbited the Moon while another landed. The rocket had five stages and included a lunar landing module (LK) and a lunar orbiting command spacecraft (LOK).',
+      img: [
+        '../assets/images/N1/n1.jpg',
+        '../assets/images/N1/n12.jpg',
+        '../assets/images/N1/n13.jpg',
+        '../assets/images/N1/n14.jpg',
+        '../assets/images/N1/n15.jpg',
+      ],
+    },
+    {
+      title: 'N-1 (1/144)',
+      info: 'The N-1 rocket was the Soviet Unions answer to the American Saturn V, meant to support manned lunar landing missions in the late 1960s and early 1970s. It was kept secret for many years, with public photos only emerging in the late 1980s. The N-1 was large and, in some ways, exceeded the Saturn V, being designed for a lunar orbit rendezvous mission where one spacecraft orbited the Moon while another landed. The rocket had five stages and included a lunar landing module (LK) and a lunar orbiting command spacecraft (LOK).',
+      img: [
+        '../assets/images/N1/n1.jpg',
+        '../assets/images/N1/n12.jpg',
+        '../assets/images/N1/n13.jpg',
+        '../assets/images/N1/n14.jpg',
+        '../assets/images/N1/n15.jpg',
+      ],
+    },
+    {
+      title: 'N-1 (1/144)',
+      info: 'The N-1 rocket was the Soviet Unions answer to the American Saturn V, meant to support manned lunar landing missions in the late 1960s and early 1970s. It was kept secret for many years, with public photos only emerging in the late 1980s. The N-1 was large and, in some ways, exceeded the Saturn V, being designed for a lunar orbit rendezvous mission where one spacecraft orbited the Moon while another landed. The rocket had five stages and included a lunar landing module (LK) and a lunar orbiting command spacecraft (LOK).',
+      img: [
+        '../assets/images/N1/n1.jpg',
+        '../assets/images/N1/n12.jpg',
+        '../assets/images/N1/n13.jpg',
+        '../assets/images/N1/n14.jpg',
+        '../assets/images/N1/n15.jpg',
+      ],
+    },
+    {
+      title: 'N-1 (1/144)',
+      info: 'The N-1 rocket was the Soviet Unions answer to the American Saturn V, meant to support manned lunar landing missions in the late 1960s and early 1970s. It was kept secret for many years, with public photos only emerging in the late 1980s. The N-1 was large and, in some ways, exceeded the Saturn V, being designed for a lunar orbit rendezvous mission where one spacecraft orbited the Moon while another landed. The rocket had five stages and included a lunar landing module (LK) and a lunar orbiting command spacecraft (LOK).',
+      img: [
+        '../assets/images/N1/n1.jpg',
+        '../assets/images/N1/n12.jpg',
+        '../assets/images/N1/n13.jpg',
+        '../assets/images/N1/n14.jpg',
+        '../assets/images/N1/n15.jpg',
+      ],
+    },
+    {
+      title: 'N-1 (1/144)',
+      info: 'The N-1 rocket was the Soviet Unions answer to the American Saturn V, meant to support manned lunar landing missions in the late 1960s and early 1970s. It was kept secret for many years, with public photos only emerging in the late 1980s. The N-1 was large and, in some ways, exceeded the Saturn V, being designed for a lunar orbit rendezvous mission where one spacecraft orbited the Moon while another landed. The rocket had five stages and included a lunar landing module (LK) and a lunar orbiting command spacecraft (LOK).',
+      img: [
+        '../assets/images/N1/n1.jpg',
+        '../assets/images/N1/n12.jpg',
+        '../assets/images/N1/n13.jpg',
+        '../assets/images/N1/n14.jpg',
+        '../assets/images/N1/n15.jpg',
+      ],
+    },
+    {
+      title: 'N-1 (1/144)',
+      info: 'The N-1 rocket was the Soviet Unions answer to the American Saturn V, meant to support manned lunar landing missions in the late 1960s and early 1970s. It was kept secret for many years, with public photos only emerging in the late 1980s. The N-1 was large and, in some ways, exceeded the Saturn V, being designed for a lunar orbit rendezvous mission where one spacecraft orbited the Moon while another landed. The rocket had five stages and included a lunar landing module (LK) and a lunar orbiting command spacecraft (LOK).',
+      img: [
+        '../assets/images/N1/n1.jpg',
+        '../assets/images/N1/n12.jpg',
+        '../assets/images/N1/n13.jpg',
+        '../assets/images/N1/n14.jpg',
+        '../assets/images/N1/n15.jpg',
+      ],
+    },
+    {
+      title: 'N-1 (1/144)',
+      info: 'The N-1 rocket was the Soviet Unions answer to the American Saturn V, meant to support manned lunar landing missions in the late 1960s and early 1970s. It was kept secret for many years, with public photos only emerging in the late 1980s. The N-1 was large and, in some ways, exceeded the Saturn V, being designed for a lunar orbit rendezvous mission where one spacecraft orbited the Moon while another landed. The rocket had five stages and included a lunar landing module (LK) and a lunar orbiting command spacecraft (LOK).',
+      img: [
+        '../assets/images/N1/n1.jpg',
+        '../assets/images/N1/n12.jpg',
+        '../assets/images/N1/n13.jpg',
+        '../assets/images/N1/n14.jpg',
+        '../assets/images/N1/n15.jpg',
+      ],
+    },
+    {
+      title: 'N-1 (1/144)',
+      info: 'The N-1 rocket was the Soviet Unions answer to the American Saturn V, meant to support manned lunar landing missions in the late 1960s and early 1970s. It was kept secret for many years, with public photos only emerging in the late 1980s. The N-1 was large and, in some ways, exceeded the Saturn V, being designed for a lunar orbit rendezvous mission where one spacecraft orbited the Moon while another landed. The rocket had five stages and included a lunar landing module (LK) and a lunar orbiting command spacecraft (LOK).',
+      img: [
+        '../assets/images/N1/n1.jpg',
+        '../assets/images/N1/n12.jpg',
+        '../assets/images/N1/n13.jpg',
+        '../assets/images/N1/n14.jpg',
+        '../assets/images/N1/n15.jpg',
+      ],
+    },
+
   ];
