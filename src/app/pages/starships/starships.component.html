@@ -1,73 +1,33 @@
-<h1>Modelos de naves espaciales</h1>
-
-<p>He sido coleccionista y constructor de maquetas espaciales desde la década de 1960. Aunque mis maquetas no son tan elegantes como las de otros, disfruto mucho al crear algo inusual y verlo realizado. Aunque no tengo la paciencia para alcanzar el detalle de otros, trato temas inusuales y significativos en la historia de vuelos espaciales. La tecnología espacial está ligada a la tecnología militar de la Segunda Guerra Mundial y la Guerra Fría. La Carrera Espacial entre la Unión Soviética y Estados Unidos mostró la competencia por la superioridad económica y política, y se considera que Estados Unidos ganó gracias a su mejor organización y recursos.</p>
+<h1>{{ slides[slideIndex].title }}</h1>
 
 <div class="carousel">
-  <button class="nav-btn left"
-          (click)="prev()"
-          [disabled]="prevDisabled"
-          title="Anterior (←)"
-          aria-label="Anterior"
-          [class.disabled]="prevDisabled">
-    ‹
-  </button>
+  <button class="nav-btn left" (click)="prevSlide()" [disabled]="prevDisabled">‹</button>
 
   <div class="slide"
-       [style.backgroundImage]="'url('+slides[currentIndex].img+')'">
-    <div class="overlay" (click)="openModal(currentIndex)"
-         title="Haz click para más info">
-      <h2>{{ slides[currentIndex].title }}</h2>
-      <p>{{ slides[currentIndex].caption }}</p>
+       [style.backgroundImage]="'url(' + slides[slideIndex].img[imgIndex] + ')'">
+    <div class="overlay" (click)="openModal()">
+      <p>{{ slides[slideIndex].info }}</p>
+      <small>Click para más info</small>
     </div>
   </div>
 
-  <button class="btn-autoplay" (click)="toggleAutoplay()"
-        [attr.aria-pressed]="autoplay"
-        [title]="autoplay ? 'Pausar autoplay' : 'Iniciar autoplay'">
-  {{ autoplay ? '❚❚' : '►' }}
-</button>
-
-
-  <button class="nav-btn right"
-          (click)="next()"
-          [disabled]="nextDisabled"
-          title="Siguiente (→)"
-          aria-label="Siguiente"
-          [class.disabled]="nextDisabled">
-    ›
-  </button>
-</div>
-
-<div class="dots">
-  <button
-    *ngFor="let s of slides; let idx = index"
-    class="dot"
-    [class.active]="idx === currentIndex"
-    (click)="goTo(idx)"
-    [title]="'Ir a '+(idx+1)+'/'+slides.length"
-    [attr.aria-label]="'Ir a slide '+(idx+1)">
-    {{ idx+1 }}
-  </button>
+  <button class="nav-btn right" (click)="nextSlide()" [disabled]="nextDisabled">›</button>
 </div>
 
 <div class="thumbs">
-  <img
-    *ngFor="let s of slides; let idx = index"
-    [src]="s.img"
-    loading="lazy"
-    (error)="onImgError($event)"
-    [class.active]="idx === currentIndex"
-    (click)="goTo(idx)"
-    [title]="'Miniatura '+(idx+1)"
-    alt="Miniatura {{idx+1}}" />
+  <img *ngFor="let url of slides[slideIndex].img; let i = index"
+       [src]="url"
+       (click)="selectImage(i)"
+       [class.active]="i === imgIndex"
+       alt="Imagen {{ i + 1 }}"
+       loading="lazy"/>
 </div>
 
-
-<!-- Modal (igual que antes) -->
+<!-- Modal -->
 <div class="modal-backdrop" *ngIf="showModal" (click)="closeModal()"></div>
 <div class="modal-window" *ngIf="showModal">
-  <button class="modal-close" (click)="closeModal()" aria-label="Cerrar modal">✕</button>
-  <img [src]="modalSlide.img" alt="{{modalSlide.title}}" loading="lazy" (error)="onImgError($event)"/>
-  <h2>{{modalSlide.title}}</h2>
-  <p>{{modalSlide.info}}</p>
+  <button class="modal-close" (click)="closeModal()">✕</button>
+  <img [src]="slides[slideIndex].img[imgIndex]" alt="Detalle"/>
+  <h2>{{ slides[slideIndex].title }}</h2>
+  <p>{{ slides[slideIndex].info }}</p>
 </div>
