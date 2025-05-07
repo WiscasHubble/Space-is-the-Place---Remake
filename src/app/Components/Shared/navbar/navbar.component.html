@@ -1,12 +1,29 @@
-<div class="card">
-    <p-tabs value="">
-        <p-tablist>
-            @for(tab of tabs; track tab.route){
-            <p-tab [value]="tab.route" [routerLink]="tab.route">
-                <i [class]="tab.icon"></i>
-                <span>{{ tab.label }}</span>
-            </p-tab>
-            }
-        </p-tablist>
-    </p-tabs>
-</div>
+<header class="fixed top-0 w-full z-50 backdrop-blur-md text-white p-4 shadow-lg flex justify-between items-center">
+    <!-- Título principal -->
+    <div>
+        <h1 class="text-3xl font-bold">Space Is The Place</h1>
+    </div>
+
+    <!-- Navbar con pestañas -->
+    <div class="card border-none bg-transparent">
+        <p-tabs class="bg-transparent">
+            <p-tablist>
+                @for (tab of tabs; track tab.route) {
+                <p-tab [value]="tab.route" [routerLink]="tab.route">
+                    <div class="flex items-center gap-2 p-3">
+                        <i [class]="tab.icon"></i>
+                        <span>{{ tab.label }}</span>
+                    </div>
+                </p-tab>
+                }
+            </p-tablist>
+        </p-tabs>
+    </div>
+
+    <!-- Botón "See The Last Version" -->
+    <div>
+        <a href="#" class="text-yellow-400 hover:text-yellow-300 text-sm underline">
+            See The Last Version
+        </a>
+    </div>
+</header>

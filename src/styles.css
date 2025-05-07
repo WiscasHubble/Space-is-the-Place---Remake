@@ -2,5 +2,41 @@
 @import "tailwindcss";
 @plugin "tailwindcss-primeui";
 @import "primeicons/primeicons.css";
+
+:root {
+  --primary-color: #ad46ff;  /* Morado */
+  --primary-hover-color: #d9b3ff;
+}
+
+.p-tab {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+   backdrop-filter: blur(16px);
+}
+
+.p-button{
+  background-color: var(--primary-color) !important;
+}
+
+/* Cambiar color de fondo, borde o subrayado de la tab activa */
+p-tab.p-tab-active {
+  /* Esto afecta el color de fondo si lo tuviera */
+  background-color: transparent !important;
+  color: white !important; /* Opcional */
+}
+
+/* Si hay una línea debajo (como un subrayado o indicador), probablemente es un ::after */
+p-tab.p-tab-active::after {
+  background-color: transparent !important;
+}
+
+/* Si hay un borde en la parte inferior */
+p-tab.p-tab-active {
+  border-bottom: 2px solid var(--primary-color) !important;
+}
+
+
+
+
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -13,11 +13,11 @@ import { TabsModule } from 'primeng/tabs';
 })
 export class navbarComponent {
 
-    tabs = [
+  tabs = [
     { route: '', icon: 'pi pi-home', label: 'Home' },
-    { route: '/visits', icon: 'pi pi-cog', label: 'Visits' },
-    { route: '/starships', icon: 'pi pi-user', label: 'Starships' },
-    { route: '/about', icon: 'pi pi-user', label: 'About' }
+    { route: '/visits', icon: 'pi pi-map-marker', label: 'Visits' },
+    { route: '/starships', icon: 'pi pi-rocket', label: 'Starships' },
+    { route: '/about', icon: 'pi pi-info-circle', label: 'About' }
   ];
    
 }
