@@ -1,9 +1,4 @@
-:host {
-    display: block;
-    max-width: 900px;
-    margin: auto;
-  }
-  
+
   .carousel {
     position: relative;
     height: 500px;
@@ -17,16 +12,55 @@
     background-position: center;
     position: relative;
   }
+
   .overlay {
-    position: absolute;
-    bottom: 2rem;
-    left: 2rem;
-    background: rgba(0,0,0,0.5);
+  position: absolute;
+  top: 2rem; /* Cambiado de bottom a top */
+  left: 2rem;
+  right: 2rem; /* Añadido para evitar desbordamiento */
+  background: rgba(0, 0, 0, 0.7); /* Fondo más oscuro para mejor contraste */
+  padding: 1.5rem;
+  border-radius: 8px;
+  color: #fff;
+  backdrop-filter: blur(4px); /* Efecto de vidrio esmerilado */
+  max-width: calc(100% - 4rem); /* Ajuste para responsive */
+}
+
+.overlay h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+  color: #00e5ff; /* Color destacado para el título */
+}
+
+.overlay p {
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+
+/* === Ajustes para móviles === */
+@media (max-width: 768px) {
+  .overlay {
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
     padding: 1rem;
-    border-radius: 6px;
-    color: #fff;
-    max-width: 60%;
+    max-width: calc(100% - 2rem);
   }
+  
+  .overlay h2 {
+    font-size: 1.4rem;
+  }
+}
+
+.overlay {
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.overlay:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: translateY(-5px);
+}
+
+
   .nav-btn {
     position: absolute;
     top: 50%;

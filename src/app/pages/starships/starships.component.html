@@ -1,7 +1,79 @@
+<div class="px-8 py-8 grid grid-cols-1">
+  <h1 class="text-900 font-bold text-4xl mb-3">
+    <span class="text-purple-500">Space Models</span> and Spaceflight History
+  </h1>
+
+  <section class="text-700 text-xl mb-5">
+    I have been a collector and builder of space models since the 1960s. As a modeler I think "my grasp exceeds my
+    reach"
+    often - my models are never as beautifully finished as others I see at model shows - but I am comfortable with this.
+    I
+    get the greatest thrill out of conceiving of something a bit unusal, "pushing the envelope" a bit, and then seeing
+    it
+    realized. I never seem to have the patience, let alone the skills, to do the super-detailing and beautiful finishes
+    of
+    some other modelers. But I do have a knack for taking on some unusual subjects, as I think you'll see in the
+    following
+    pages. In choosing subjects I am interested in capturing significant moments or honouring technical achievements in
+    the
+    history of spaceflight, as well as subjects of interest for personal reasons. In the following pages I have tried to
+    provide some historical context relating to each of the subjects being modeled.
+  </section>
+
+  <div class="card">
+    <p-tabView [(activeIndex)]="activeIndex" scrollable>
+      @for(tab of tabs; track tab.label){
+      <p-tabPanel [header]="tab.label">
+        <div class="flex flex-col md:flex-row gap-6">
+          <!-- Información del modelo -->
+          <div class="flex-1 p-4 rounded-lg">
+            <h2 class="text-2xl font-bold mb-4 text-purple-500">{{ tab.model.title }}</h2>
+            <div class="prose max-w-none">
+              <p>{{ tab.model.info }}</p>
+            </div>
+          </div>
+
+          <!-- Galería de imágenes -->
+          <div class="flex-1">
+            <p-galleria [value]="getGalleryImages(tab.model)" [responsiveOptions]="responsiveOptions"
+              [containerStyle]="{ 'max-width': '100%' }" [numVisible]="5" [showItemNavigators]="true"
+              [showThumbnails]="true">
+
+              <ng-template pTemplate="item" let-item>
+                <img [src]="item.itemImageSrc"
+                  style="width: 100%; max-height: 400px; object-fit: contain; border-radius: 8px;" />
+              </ng-template>
+
+              <ng-template pTemplate="thumbnail" let-item>
+                <img [src]="item.thumbnailImageSrc"
+                  style="border-radius: 4px; width: 100px; height: 60px; object-fit: cover;" />
+              </ng-template>
+
+              <ng-template pTemplate="caption" let-item>
+                <div class="text-xl mb-2 font-bold">{{ tab.label }}</div>
+              </ng-template>
+            </p-galleria>
+          </div>
+        </div>
+      </p-tabPanel>
+      }
+    </p-tabView>
+  </div>
+</div>
+
+<!--
+
 <h1>Modelos de naves espaciales</h1>
 
-<p>He sido coleccionista y constructor de maquetas espaciales desde la década de 1960. Aunque mis maquetas no son tan elegantes como las de otros, disfruto mucho al crear algo inusual y verlo realizado. Aunque no tengo la paciencia para alcanzar el detalle de otros, trato temas inusuales y significativos en la historia de vuelos espaciales. La tecnología espacial está ligada a la tecnología militar de la Segunda Guerra Mundial y la Guerra Fría. La Carrera Espacial entre la Unión Soviética y Estados Unidos mostró la competencia por la superioridad económica y política, y se considera que Estados Unidos ganó gracias a su mejor organización y recursos.</p>
-
+<p>He sido coleccionista y constructor de maquetas espaciales desde la década de 1960. Aunque mis maquetas no son tan
+  elegantes como las de otros, disfruto mucho al crear algo inusual y verlo realizado. Aunque no tengo la paciencia para
+  alcanzar el detalle de otros, trato temas inusuales y significativos en la historia de vuelos espaciales. La
+  tecnología espacial está ligada a la tecnología militar de la Segunda Guerra Mundial y la Guerra Fría. La Carrera
+  Espacial entre la Unión Soviética y Estados Unidos mostró la competencia por la superioridad económica y política, y
+  se considera que Estados Unidos ganó gracias a su mejor organización y recursos.</p> 
+  
+  -->
+<!-- 
 <div class="carousel">
   <button class="nav-btn left"
           (click)="prev()"
@@ -62,8 +134,10 @@
     alt="Miniatura {{idx+1}}" />
 </div>
 
+-->
 
-<!-- Modal (igual que antes) -->
+<!-- Modal (igual que antes) 
+ 
 <div class="modal-backdrop" *ngIf="showModal" (click)="closeModal()"></div>
 <div class="modal-window" *ngIf="showModal">
   <button class="modal-close" (click)="closeModal()" aria-label="Cerrar modal">✕</button>
@@ -71,3 +145,5 @@
   <h2>{{modalSlide.title}}</h2>
   <p>{{modalSlide.info}}</p>
 </div>
+
+-->

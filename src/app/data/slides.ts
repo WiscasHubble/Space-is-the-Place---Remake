@@ -1,5 +1,5 @@
 export interface Slide {
-    img: string;
+    img: string | string[] ;
     title: string;
     caption: string;
     info?: string;
@@ -7,7 +7,14 @@ export interface Slide {
 
   export const INFORMACION_PAGINA_01: Slide[] = [
     {
-      img: 'Img/V-2/V-2.jpg',
+      img: 
+      [
+        'Img/V-2/V-2.jpg',
+        'Img/V-2/V-2.jpg',
+        'Img/V-2/V-2.jpg',
+        'Img/V-2/V-2.jpg',
+        'Img/V-2/V-2.jpg',
+      ],
       title: 'V 2',
       caption: `Nota: El nombre de este sitio rinde homenaje a Saturno, Sun Ra…`,
       info: 'El V-2, llamado A-4 por sus diseñadores, es un avance clave en la cohetería. Representó el paso de cohetes pequeños a sistemas de armas grandes, permitiendo el vuelo espacial. Desarrollado en Alemania durante la Segunda Guerra Mundial por el Dr. Wernher von Braun, el V-2 integró innovaciones técnicas, como el uso de oxígeno líquido para enfriar el motor. Aunque llegó tarde a la guerra, fue capturado y estudiado por Estados Unidos y la Unión Soviética, lo que llevó al desarrollo de cohetes como el Saturno V. Un modelo en escala 1/69 del V-2 se exhibe en un diorama de guerra.'
