@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/space-is-the-place/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
