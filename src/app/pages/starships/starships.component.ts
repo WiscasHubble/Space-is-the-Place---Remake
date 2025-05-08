@@ -1,30 +1,84 @@
 ﻿import { Component} from '@angular/core';
-import { INFORMACION_PAGINA_01, Slide } from '../../data/slides';  // <—Aquí
+import { INFORMACION_PAGINA_01, Slide } from '../../data/slides';  // <
 import { GalleriaModule } from 'primeng/galleria'; //galeria
 import { CommonModule } from '@angular/common';
 import { TabViewChangeEvent } from 'primeng/tabview';
 import { TabViewModule } from 'primeng/tabview'; // Cambia TabsModule por TabViewModule
+import { FormsModule } from '@angular/forms'; // Necesario para ngModel
+import { DropdownModule } from 'primeng/dropdown';
+
 
 @Component({
   selector: 'app-landing',
-  imports: [TabViewModule , GalleriaModule, CommonModule],
+  imports: [TabViewModule , GalleriaModule, CommonModule, FormsModule, DropdownModule],
   templateUrl: './starships.component.html',
   styleUrls: ['./starships.component.css']
 })
 export class StarshipsComponentPage {
   /****************** TabsModule *****************/
 
+  searchTerm: string = '';
+  highlightedIndex: number | null = null;
+  activeIndex: number = 0;
+  currentImageIndex: number = 0;
+  // Opciones para el listbox
+  tabOptions: any[] = [];
+  selectedTab: any;
+  mostrarBarra: boolean = true;
+
+  mostrarBuscador: boolean = false;
+
+  toggleBuscador() {
+    this.mostrarBuscador = !this.mostrarBuscador;
+  }
+
+  
   // Cada modelo será una pestaña independiente
   tabs = INFORMACION_PAGINA_01.map(model => ({
     label: model.title, // Usamos el título como nombre de la pestaña
     model: model
   }));
+  
+  titulos = this.tabs.map(x => ({ label: x.model.title, value: x }))
 
-  activeIndex: number=0;
+constructor(){
+  this.tabOptions = INFORMACION_PAGINA_01.map(model => ({
+    label: model.title,
+    value: model // o algún identificador único
+  }));
+}
 
+// Navegar a la pestaña seleccionada
+navigateToTab() {
+  if (this.selectedTab) {
+    const index = this.tabOptions.findIndex(opt => opt.value === this.selectedTab.value);
+    if (index >= 0) {
+      this.activeIndex = index;
+    }
+  }
+}  
   /***********************************************/
 
+// Función para buscar y resaltar
+findAndHighlightTab() {
+  if (!this.searchTerm.trim()) {
+    this.highlightedIndex = null;
+    return;
+  }
 
+  const term = this.searchTerm.toLowerCase();
+  const foundIndex = this.tabs.findIndex(tab => 
+    tab.label.toLowerCase().includes(term) || 
+    tab.model.info?.toLowerCase().includes(term)
+  );
+
+  if (foundIndex >= 0) {
+    this.activeIndex = foundIndex; // Navega a la pestaña encontrada
+  } else {
+    this.highlightedIndex = null;
+    // Puedes agregar un mensaje de "no encontrado" si lo deseas
+  }
+}
 
 
 
@@ -55,6 +109,11 @@ export class StarshipsComponentPage {
       itemImageSrc: img,
       thumbnailImageSrc: img
     }));
+  }
+
+  getMainImage(model: Slide): string {
+    const images = Array.isArray(model.img) ? model.img : [model.img];
+    return images[this.currentImageIndex] || images[0];
   }
 
   /***********************************************/

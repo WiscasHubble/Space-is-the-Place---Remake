@@ -27,22 +27,78 @@
   </section>
 
   <div class="card">
+    <!-- Buscador con p-listbox -->
+    <div class="flex justify-end items-center p-4 gap-2">
+
+      <!-- Botón con lupa (solo se muestra si NO está el buscador activo) -->
+      <button 
+        *ngIf="!mostrarBuscador"
+        (click)="toggleBuscador()"
+        class="text-purple-500 hover:text-purple-700 transition"
+        title="Mostrar buscador">
+        <span class="pi pi-search"></span>
+      </button>
+    
+      <!-- Área del buscador (dropdown) -->
+      <div *ngIf="mostrarBuscador"
+           class="flex items-center gap-2 text-purple-500 p-2 rounded shadow-md max-w-md w-full">
+        
+        <p-dropdown
+          [options]="tabOptions"
+          [(ngModel)]="selectedTab"
+          optionLabel="label"
+          [filter]="true"
+          placeholder="Buscar..."
+          (onChange)="navigateToTab()"
+          [style]="{ 'width': '100%', 'color': '#9333ea' }">
+        </p-dropdown>
+    
+        <!-- Botón para cerrar buscador -->
+        <button 
+          (click)="toggleBuscador()"
+          class="text-gray-500 hover:text-red-500 transition"
+          title="Cerrar buscador">
+          <i class="pi pi-times"></i>
+        </button>
+    
+      </div>
+    
+    </div>
+
+
+<!-- 
+    <div class="sticky top-0 z-10 p-4 shadow-sm backdrop-filter backdrop-blur-sm bg-opacity-90">
+      <div class="relative max-w-md mx-auto">
+        <input type="text" 
+               [(ngModel)]="searchTerm" 
+               (keyup.enter)="findAndHighlightTab()"
+               placeholder="Buscar modelo (Enter para buscar)..."
+               class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300">
+        <span class="absolute left-3 top-3.5 text-gray-500">
+          <i class="pi pi-search"></i>
+        </span>
+      </div>
+    </div> -->
+
     <p-tabView [(activeIndex)]="activeIndex" scrollable>
-      @for(tab of tabs; track tab.label){
-      <p-tabPanel [header]="tab.label">
-        <div class="flex flex-col md:flex-row gap-6">
-          <!-- Información del modelo -->
-          <div class="flex-1 p-4 rounded-lg">
-            <h2 class="text-2xl font-bold mb-4 text-purple-500">{{ tab.model.title }}</h2>
-            <div class="prose max-w-none">
-              <p>{{ tab.model.info }}</p>
+      @for(tab of tabs; track tab.label; let i = $index){
+        <p-tabPanel [header]="tab.label" [selected]="highlightedIndex === i">
+          <div class="flex flex-col md:flex-row gap-6" [class.bg-purple-50]="highlightedIndex === i">
+            <!-- Información del modelo -->
+            <div class="flex-1 p-4 rounded-lg">
+              <h2 class="text-2xl font-bold mb-4" [class.text-purple-500]="highlightedIndex === i">
+                {{ tab.model.title }}
+              </h2>
+              <div class="prose max-w-none">
+                <p>{{ tab.model.info }}</p>
+              </div>
             </div>
-          </div>
 
           <!-- Galería de imágenes -->
           <div class="flex-1">
             <p-galleria [value]="getGalleryImages(tab.model)" [responsiveOptions]="responsiveOptions"
               [containerStyle]="{ 'max-width': '100%' }" [numVisible]="5" [showItemNavigators]="true"
+              [showThumbnailNavigators]="false"
               [showThumbnails]="true">
 
               <ng-template pTemplate="item" let-item>
