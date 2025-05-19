@@ -13,6 +13,10 @@
     position: relative;
   }
 
+  p, h1, h2, h3, h4, h5, h6, div, span {
+  text-align: justify;
+}
+
   .overlay {
   position: absolute;
   top: 2rem; /* Cambiado de bottom a top */

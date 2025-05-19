@@ -38,6 +38,7 @@ interface EventItem {
     icon: string;
     color: string;
     // Contenido específico para cada evento
+    year?: string;
     leftContent: CardContent;
     rightContent: {
         tabs: TabItem[];
@@ -85,6 +86,7 @@ export class VisitsComponentPage {
                 status: 'Baikonour',
                 date: 'July, 1992',
                 icon: 'pi pi-circle',
+                year: '1992',
                 color: '#ad46ff',
                 leftContent: {
                     title: 'Baikonour',
@@ -134,6 +136,7 @@ export class VisitsComponentPage {
             {
                 status: 'The Kennedy Space Center',
                 date: 'February 1993',
+                year: '1993',
                 icon: 'pi pi-circle',
                 color: '#ad46ff',
                 leftContent: {
@@ -174,52 +177,9 @@ export class VisitsComponentPage {
                 }
             },
             {
-                status: 'The Kennedy Space Center',
-                date: 'January 2006',
-                icon: 'pi pi-circle',
-                color: '#ad46ff',
-                leftContent: {
-                    title: 'The Kennedy Space Center',
-                    subtitle: 'January 2006',
-                    imageUrl: 'assets/images/baikonour_5.jpg',
-                    fullSizeImageUrl: [
-                        'assets/images/pad_39bkrh.jpg',
-                        'assets/images/new_horizons_launch_1_sm.jpg',
-                        'assets/images/new_horizons_launch_2_sm.jpg',
-                        'assets/images/new_horizons_launch_3_sm.jpg',
-                        'assets/images/newhorizonsmodel1_sm.jpg',
-                        'assets/images/newhorizonsmodel2_sm.jpg',
-                        'assets/images/newhorizonsmodel3_sm.jpg',
-                        'assets/images/newhorizonsmodel4sm.jpg',
-                        'assets/images/seattle.jpg',
-                        'assets/images/space_needlesm.jpg'
-
-                    ],
-                    description: 'A number of the guys who first met on the trip to Russia in 1992, the so called "Baikonour Boys" arranged to meet at "the Cape" in January of 2006 for a reunion and to see the New Horizons spacecraft launched to Pluto.',
-                    // buttonText: 'View details',
-                    customStyles: {
-                        imageHeight: '250px'
-                    }
-                },
-                rightContent: {
-                    tabs: [
-                        { 
-                            title: 'About this image', 
-                            content: 'This was just five months after our dear friend and fellow "Baikonour Boy" Butch Head met an untimely death in an auto accident and Butch was truly there in spirit throughout our time together. In fact, the Atlas V 500 with the New Horizons spacecraft was supposed to be launched on January 17th but was scrubbed that day and the next and finally launched on January 19th. As Bob McCullough noted, it was Butchs way of keeping us together a bit longer.', 
-                            value: '0'
-                        },
-                        { 
-                            title: 'Ron Caswell Condo', 
-                            content: 'We watched the launch from the deck of the late Ron Caswells condo, situated directly across the Indian River from the launch site. The photos and video of the launch below were taken from Rons deck.', 
-                            value: '1' 
-                        }
-                    ],
-                    accordionStyle: ''
-                }
-            },
-            {
                 status: 'Kourou',
                 date: 'November 1993',
+                year: '1993',
                 icon: 'pi pi-circle',
                 color: '#ad46ff',
                 leftContent: {
@@ -257,6 +217,7 @@ export class VisitsComponentPage {
             {
                 status: 'Vandenberg Air Force Base',
                 date: 'July 1996',
+                year: '1996',
                 icon: 'pi pi-circle',
                 color: '#ad46ff',
                 leftContent: {
@@ -299,8 +260,54 @@ export class VisitsComponentPage {
                 }
             },
             {
+                status: 'The Kennedy Space Center',
+                date: 'January 2006',
+                year: '2006',
+                icon: 'pi pi-circle',
+                color: '#ad46ff',
+                leftContent: {
+                    title: 'The Kennedy Space Center',
+                    subtitle: 'January 2006',
+                    imageUrl: 'assets/images/baikonour_5.jpg',
+                    fullSizeImageUrl: [
+                        'assets/images/pad_39bkrh.jpg',
+                        'assets/images/new_horizons_launch_1_sm.jpg',
+                        'assets/images/new_horizons_launch_2_sm.jpg',
+                        'assets/images/new_horizons_launch_3_sm.jpg',
+                        'assets/images/newhorizonsmodel1_sm.jpg',
+                        'assets/images/newhorizonsmodel2_sm.jpg',
+                        'assets/images/newhorizonsmodel3_sm.jpg',
+                        'assets/images/newhorizonsmodel4sm.jpg',
+                        'assets/images/seattle.jpg',
+                        'assets/images/space_needlesm.jpg'
+
+                    ],
+                    description: 'A number of the guys who first met on the trip to Russia in 1992, the so called "Baikonour Boys" arranged to meet at "the Cape" in January of 2006 for a reunion and to see the New Horizons spacecraft launched to Pluto.',
+                    // buttonText: 'View details',
+                    customStyles: {
+                        imageHeight: '250px'
+                    }
+                },
+                rightContent: {
+                    tabs: [
+                        { 
+                            title: 'About this image', 
+                            content: 'This was just five months after our dear friend and fellow "Baikonour Boy" Butch Head met an untimely death in an auto accident and Butch was truly there in spirit throughout our time together. In fact, the Atlas V 500 with the New Horizons spacecraft was supposed to be launched on January 17th but was scrubbed that day and the next and finally launched on January 19th. As Bob McCullough noted, it was Butchs way of keeping us together a bit longer.', 
+                            value: '0'
+                        },
+                        { 
+                            title: 'Ron Caswell Condo', 
+                            content: 'We watched the launch from the deck of the late Ron Caswells condo, situated directly across the Indian River from the launch site. The photos and video of the launch below were taken from Rons deck.', 
+                            value: '1' 
+                        }
+                    ],
+                    accordionStyle: ''
+                }
+            },
+            {
                 status: 'Peenemunde',
                 date: 'June 2009 & September 2015',
+                year: '2009',
                 icon: 'pi pi-circle',
                 color: '#ad46ff',
                 leftContent: {
@@ -348,6 +355,7 @@ export class VisitsComponentPage {
             {
                 status: 'Woomera',
                 date: 'September 2017',
+                year: '2017',
                 icon: 'pi pi-circle',
                 color: '#ad46ff',
                 leftContent: {

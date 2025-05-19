@@ -15,8 +15,8 @@ export class navbarComponent {
 
   tabs = [
     { route: '/', icon: 'pi pi-home', label: 'Home' },
-    { route: '/visits', icon: 'pi pi-map-marker', label: 'Visits' },
-    { route: '/starships', icon: 'fas fa-rocket', label: 'Starships' },
+    { route: '/visits', icon: 'fa-solid fa-landmark', label: 'Space Centers' },
+    { route: '/starships', icon: 'fas fa-rocket', label: 'Space Models' },
     { route: '/about', icon: 'pi pi-info-circle', label: 'About' }
   ];
    
