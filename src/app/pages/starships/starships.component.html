@@ -5,68 +5,59 @@
 </div>
 
 <div class="px-8 py-8 pt-40 grid grid-cols-1">
-  <h1 class="text-900 font-bold text-4xl mb-3">
-    <span class="text-purple-500">Space Models</span> and Spaceflight History
-  </h1>
+  <div class="max-w-4xl mx-auto align-middle">
+    <h1 class="text-900 font-bold text-4xl my-3">
+      <span class="text-purple-500">Space Models</span> and Spaceflight History
+    </h1>
 
-  <section class="text-700 text-xl mb-5">
-    I have been a collector and builder of space models since the 1960s. As a modeler I think "my grasp exceeds my
-    reach"
-    often - my models are never as beautifully finished as others I see at model shows - but I am comfortable with this.
-    I
-    get the greatest thrill out of conceiving of something a bit unusal, "pushing the envelope" a bit, and then seeing
-    it
-    realized. I never seem to have the patience, let alone the skills, to do the super-detailing and beautiful finishes
-    of
-    some other modelers. But I do have a knack for taking on some unusual subjects, as I think you'll see in the
-    following
-    pages. In choosing subjects I am interested in capturing significant moments or honouring technical achievements in
-    the
-    history of spaceflight, as well as subjects of interest for personal reasons. In the following pages I have tried to
-    provide some historical context relating to each of the subjects being modeled.
-  </section>
-
-  <div class="card">
+    <section class="text-700 text-xl my-5">
+      I have been a collector and builder of space models since the 1960s. As a modeler I think "my grasp exceeds my
+      reach"
+      often - my models are never as beautifully finished as others I see at model shows - but I am comfortable with
+      this.
+      I
+      get the greatest thrill out of conceiving of something a bit unusal, "pushing the envelope" a bit, and then seeing
+      it
+      realized. I never seem to have the patience, let alone the skills, to do the super-detailing and beautiful
+      finishes
+      of
+      some other modelers. But I do have a knack for taking on some unusual subjects, as I think you'll see in the
+      following
+      pages. In choosing subjects I am interested in capturing significant moments or honouring technical achievements
+      in
+      the
+      history of spaceflight, as well as subjects of interest for personal reasons.
+    </section>
+  </div>
+  <div class="card max-w-4xl mx-auto align-middle">
     <!-- Buscador con p-listbox -->
     <div class="flex justify-end items-center p-4 gap-2">
 
       <!-- Botón con lupa (solo se muestra si NO está el buscador activo) -->
-      <button 
-        *ngIf="!mostrarBuscador"
-        (click)="toggleBuscador()"
-        class="text-purple-500 hover:text-purple-700 transition"
-        title="Mostrar buscador">
+      <button *ngIf="!mostrarBuscador" (click)="toggleBuscador()"
+        class="text-purple-500 hover:text-purple-700 transition" title="Mostrar buscador">
         <span class="pi pi-search"></span>
       </button>
-    
+
       <!-- Área del buscador (dropdown) -->
       <div *ngIf="mostrarBuscador"
-           class="flex items-center gap-2 text-purple-500 p-2 rounded shadow-md max-w-md w-full">
-        
-        <p-dropdown
-          [options]="tabOptions"
-          [(ngModel)]="selectedTab"
-          optionLabel="label"
-          [filter]="true"
-          placeholder="Search..."
-          (onChange)="navigateToTab()"
-          [style]="{ 'width': '100%', 'color': '#9333ea' }">
+        class="flex items-center gap-2 text-purple-500 p-2 rounded shadow-md max-w-md w-full">
+
+        <p-dropdown [options]="tabOptions" [(ngModel)]="selectedTab" optionLabel="label" [filter]="true"
+          placeholder="Search..." (onChange)="navigateToTab()" [style]="{ 'width': '100%', 'color': '#9333ea' }">
         </p-dropdown>
-    
+
         <!-- Botón para cerrar buscador -->
-        <button 
-          (click)="toggleBuscador()"
-          class="text-gray-500 hover:text-red-500 transition"
-          title="Cerrar buscador">
+        <button (click)="toggleBuscador()" class="text-gray-500 hover:text-red-500 transition" title="Cerrar buscador">
           <i class="pi pi-times"></i>
         </button>
-    
+
       </div>
-    
+
     </div>
 
 
-<!-- 
+    <!-- 
     <div class="sticky top-0 z-10 p-4 shadow-sm backdrop-filter backdrop-blur-sm bg-opacity-90">
       <div class="relative max-w-md mx-auto">
         <input type="text" 
@@ -82,24 +73,23 @@
 
     <p-tabView [(activeIndex)]="activeIndex" scrollable>
       @for(tab of tabs; track tab.label; let i = $index){
-        <p-tabPanel [header]="tab.label" [selected]="highlightedIndex === i">
-          <div class="flex flex-col md:flex-row gap-6" [class.bg-purple-50]="highlightedIndex === i">
-            <!-- Información del modelo -->
-            <div class="flex-1 p-4 rounded-lg">
-              <h2 class="text-2xl font-bold mb-4" [class.text-purple-500]="highlightedIndex === i">
-                {{ tab.model.title }}
-              </h2>
-              <div class="prose max-w-none">
-                <p>{{ tab.model.info }}</p>
-              </div>
+      <p-tabPanel [header]="tab.label" [selected]="highlightedIndex === i">
+        <div class="flex flex-col md:flex-row gap-6" [class.bg-purple-50]="highlightedIndex === i">
+          <!-- Información del modelo -->
+          <div class="flex-1 p-4 rounded-lg">
+            <h2 class="text-2xl font-bold mb-4" [class.text-purple-500]="highlightedIndex === i">
+              {{ tab.model.title }}
+            </h2>
+            <div class="prose max-w-none">
+              <p>{{ tab.model.info }}</p>
             </div>
+          </div>
 
           <!-- Galería de imágenes -->
           <div class="flex-1">
             <p-galleria [value]="getGalleryImages(tab.model)" [responsiveOptions]="responsiveOptions"
               [containerStyle]="{ 'max-width': '100%' }" [numVisible]="5" [showItemNavigators]="true"
-              [showThumbnailNavigators]="false"
-              [showThumbnails]="true">
+              [showThumbnailNavigators]="false" [showThumbnails]="true">
 
               <ng-template pTemplate="item" let-item>
                 <img [src]="item.itemImageSrc"
