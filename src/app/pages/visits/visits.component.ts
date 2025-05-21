@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HostListener } from '@angular/core';
 import { Timeline } from 'primeng/timeline';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
@@ -392,4 +393,24 @@ export class VisitsComponentPage {
 
         ];
     }
+
+    
+    @HostListener('document:keydown.escape', ['$event'])
+    handleEscapeKey(event: KeyboardEvent) {
+        if (this.displayModal) {
+            this.displayModal = false;
+        }
+    }
+
+    @HostListener('document:keydown.arrowright', ['$event'])
+    nextImageShortcut(event: KeyboardEvent) {
+        if (this.displayModal) this.nextImage();
+    }
+
+    @HostListener('document:keydown.arrowleft', ['$event'])
+    prevImageShortcut(event: KeyboardEvent) {
+        if (this.displayModal) this.prevImage();
+    }
+
+
 }
